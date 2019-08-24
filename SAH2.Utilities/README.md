@@ -1,2 +1,2 @@
 # SAH2.Utilities
-This project present some example utilities classes.
+This project presents some example utilities classes.
