@@ -41,13 +41,41 @@ From Custom Mail Provider:
     
     new MailSender(customMail, new MailAddress("receiver@provider.ext")).SendMail();
 
+***
 ## SAH2.Web.MVC
+
 This project presents some extension and functions to use in an MVC projects. Also includes an HtmlHelper to get data from Gravatar.
 
 
 ## SAH2.Web.MVC.Utilities.EmbeddedResourcePack
-###### Soon...
 
+With this project, you can create embedded resources and use them in html with friendly names
+
+To prepare an example, you can follow these steps:
+
+- First, create a new class library project named **"Test.EmbeddedResourcePack.jQuery"** with **use Framework** and add this class:
+  >In this example, we used "Test.EmbeddedResourcePack.jQuery" as project name and put "jquery-3.4.1.min.js" file under /libs/js/ directory. Although the project name is Test.EmbeddedResource.jQuery, the assembly's default namespace is Test.EmbeddedResource. Because of this, **we use "Test.EmbeddedResource" string as a part of the file address definer**. If we don't want to use default namespace in the address definer, it still works but there will be a possibility to mix up with another embedded resource. Please be careful with it.  If you want to use another name or directory, remember to change address in the code below!
+
+      namespace Test.EmbeddedResourcePack
+      {
+          public class jQuery : CustomEmbeddedBundle<jQuery>
+          {
+               public static MvcHtmlString JsOnLocal => AutoRender("Test.EmbeddedResourcePack/libs/js/jquery-3.4.1.min.js");
+               public static MvcHtmlString JsOnCDN => AutoRender("//code.jquery.com/jquery-3.4.1.min.js");
+          }
+      }
+
+- Second, download jQuery file from [//code.jquery.com/jquery-3.4.1.min.js](//code.jquery.com/jquery-3.4.1.min.js), add into folder that mentioned above and set  the file as Embedded Resource from file properties (Build Action: Embedded resource).
+
+- Now, create a new MVC project using the Framework, reference the above project, and add one of these codes wherever you want to use the jQuery file:
+
+      <!-- The result is: Generated local source address tag -->
+      @jQuery.JsOnLocal
+
+      <!-- The result is: Generated CDN address tag -->
+      @jQuery.JsOnCDN
+
+That's it. Also, if you want, you can create more complicated embedded resource projects.
 
 
 
@@ -72,7 +100,6 @@ Example usage of ImageResource markup extension:
     {ext:ImageResource Namespace.Folder.ImageName.ImgExt, ContainerAssemblyRelatedType={x:Type ContainerAssemblyXmlns:AnyClass}}
 
 
-##
 ## SAH2.WPF
 
  - TextBoxSelectAllMode (AttachedProperties)
