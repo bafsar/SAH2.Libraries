@@ -1,4 +1,4 @@
-﻿/***********************************************************************************************************
+/***********************************************************************************************************
  ***********************************************************************************************************
  ***********************************************************************************************************
  ***                                                                                                     ***
@@ -16,13 +16,15 @@
  ***********************************************************************************************************
  **********************************************************************************************************/
 
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Globalization;
 
 namespace SAH2.Utilities
 {
-#if (NET472 || NET48)
-    using System.Drawing.Drawing2D;
-    using System.Drawing.Imaging;
-
     /// <summary>
     ///     Provides various image untilities, such as high quality resizing and the ability to save.
     /// </summary>
@@ -42,21 +44,14 @@ namespace SAH2.Utilities
             get
             {
                 //if the quick lookup isn't initialised, initialise it
-                if (_encoders == null)
-                {
-                    _encoders = new Dictionary<string, ImageCodecInfo>();
-                }
+                if (_encoders == null) _encoders = new Dictionary<string, ImageCodecInfo>();
 
                 //if there are no codecs, try loading them
                 if (_encoders.Count == 0)
-                {
                     //get all the codecs
                     foreach (var codec in ImageCodecInfo.GetImageEncoders())
-                    {
                         //add each codec to the quick lookup
                         _encoders.Add(codec.MimeType.ToLower(), codec);
-                    }
-                }
 
                 //return the lookup
                 return _encoders;
@@ -134,7 +129,7 @@ namespace SAH2.Utilities
         public static void SaveImage(string path, Image image, int quality, ImageFormat imageFormat)
         {
             //ensure the quality is within the correct range
-            if ((quality < 0) || (quality > 100))
+            if (quality < 0 || quality > 100)
             {
                 var error =
                     $"Image quality must be between 0 and 100, with 100 being the highest quality.  A value of {quality} was specified.";
@@ -149,7 +144,7 @@ namespace SAH2.Utilities
             var imageCodec = GetImageCodecInfo(imageFormat);
 
             //create a collection of all parameters that we will pass to the encoder and set the quality parameter for the codec
-            var encoderParams = new EncoderParameters(1) { Param = { [0] = qualityParam } };
+            var encoderParams = new EncoderParameters(1) {Param = {[0] = qualityParam}};
             //save the image using the codec and the parameters
             image.Save(path, imageCodec, encoderParams);
         }
@@ -167,10 +162,8 @@ namespace SAH2.Utilities
 
             //if we have the encoder, get it to return
             if (Encoders.ContainsKey(lookupKey))
-            {
                 //pull the codec from the lookup
                 foundCodec = Encoders[lookupKey];
-            }
 
             return foundCodec;
         }
@@ -192,21 +185,17 @@ namespace SAH2.Utilities
 
                 if (sourceWidth < maxWidth && sourceHeight < maxHeight)
                 {
-                    maxWidth = (int)sourceWidth;
-                    maxHeight = (int)sourceHeight;
+                    maxWidth = (int) sourceWidth;
+                    maxHeight = (int) sourceHeight;
                 }
                 else
                 {
                     var aspect = sourceHeight / sourceWidth;
 
                     if (sourceWidth < sourceHeight)
-                    {
                         maxWidth = Convert.ToInt32(Math.Round(maxHeight / aspect, 0));
-                    }
                     else
-                    {
                         maxHeight = Convert.ToInt32(Math.Round(maxWidth * aspect, 0));
-                    }
                 }
             }
 
@@ -289,7 +278,4 @@ namespace SAH2.Utilities
         /// </summary>
         public SmoothingMode SmoothingMode { get; set; }
     }
-
-#endif
-
 }
