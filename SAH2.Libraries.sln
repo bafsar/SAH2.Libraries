@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
@@ -20,6 +20,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAH2.Web.Mail", "SAH2.Web.Mail\SAH2.Web.Mail.csproj", "{F30336DD-7DB5-4430-9586-8E0016D43BE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAH2.Web.MVC.Utilities.EmbeddedResourcePack", "SAH2.Web.MVC.Utilities.EmbeddedResourcePack\SAH2.Web.MVC.Utilities.EmbeddedResourcePack.csproj", "{41AD2816-E4B9-45F6-9998-5D4206EDC8A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".TestProjects", ".TestProjects", "{671E1E8E-5A41-40D3-8CED-82ACD4A3C39D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EmbeddedResourcePack.jQuery", ".TestProjects\Test.EmbeddedResourcePack.jQuery\Test.EmbeddedResourcePack.jQuery.csproj", "{B881E7BD-791B-433F-B443-8C8E28A8F462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EmbeddedResourcePack", ".TestProjects\Test.EmbeddedResourcePack\Test.EmbeddedResourcePack.csproj", "{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,9 +69,21 @@ Global
 		{41AD2816-E4B9-45F6-9998-5D4206EDC8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41AD2816-E4B9-45F6-9998-5D4206EDC8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41AD2816-E4B9-45F6-9998-5D4206EDC8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B881E7BD-791B-433F-B443-8C8E28A8F462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B881E7BD-791B-433F-B443-8C8E28A8F462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B881E7BD-791B-433F-B443-8C8E28A8F462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B881E7BD-791B-433F-B443-8C8E28A8F462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B881E7BD-791B-433F-B443-8C8E28A8F462} = {671E1E8E-5A41-40D3-8CED-82ACD4A3C39D}
+		{5D043F0F-B1AB-4AB6-BC5E-6E9153DB42DF} = {671E1E8E-5A41-40D3-8CED-82ACD4A3C39D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CEE2887-D953-4774-9227-0E05F420A85E}
