@@ -1,1 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <TargetFrameworks>net472;net48</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="libs\js\jquery-3.4.1.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="libs\js\jquery-3.4.1.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SAH2.Web.MVC.Utilities.EmbeddedResourcePack\SAH2.Web.MVC.Utilities.EmbeddedResourcePack.csproj" />
+  </ItemGroup>
+
+</Project>
