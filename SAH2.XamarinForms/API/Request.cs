@@ -3,6 +3,10 @@
  ***********************************************************************************************************
  ***                                                                                                     ***
  ***                                                                                                     ***
+ ***                                     Based on the codes on                                           ***
+ ***                            https://github.com/4gus71n/Xamarin.Droid                                 ***
+ ***                                     address and improved.                                           ***
+ ***                                                                                                     ***
  ***                              This class is still under development                                  ***
  ***                                                                                                     ***
  ***                                                                                                     ***
